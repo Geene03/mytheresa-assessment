@@ -1,0 +1,7 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+open_pull_requests_report/
+.env

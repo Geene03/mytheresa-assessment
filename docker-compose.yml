@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  fashionhub-demo-app:
+    image: pocketaces2/fashionhub-demo-app:latest
+    ports:
+      - "4000:4000"
+    profiles:
+      - local
+  
+  playwright-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PLAYWRIGHT_HTML_HOST=0.0.0.0
+    command: ["npx", "playwright", "test"]
+    ipc: host
+    ports: 
+      - "9323:9323" 
+    profiles:
+      - local 
+      - prod  
+      - staging
